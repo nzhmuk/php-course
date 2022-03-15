@@ -1,30 +1,21 @@
 <?php
-
+declare(strict_types=1);
 /*
  * Implement function isPowerOfThree(), that defines if the argument is power of 3 or not
  */
 
-declare(strict_types=1);
-
 function isPowerOfThree(int $number): bool
 {
     if ($number === 1) {
-        $result = true;
+        return true;
     } else {
         $tmp = $number; // можно переменную $tmp вообще выкинуть, оставил для читаемости
 
         while ($tmp > 1) {
             $tmp = $tmp / 3;
         }
-
-        if ($tmp === 1) {
-            $result = true;
-        } else {
-            $result = false;
-        }
+        return $tmp === 1;
     }
-
-    return $result;
 }
 
 print_r("1  -  " . (isPowerOfThree(1) ? 'true' : 'false') . "\n");
