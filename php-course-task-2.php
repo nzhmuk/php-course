@@ -8,14 +8,12 @@ function isPowerOfThree(int $number): bool
 {
     if ($number === 1) {
         return true;
-    } else {
-        $tmp = $number; // можно переменную $tmp вообще выкинуть, оставил для читаемости
-
-        while ($tmp > 1) {
-            $tmp = $tmp / 3;
-        }
-        return $tmp === 1;
     }
+
+    while ($number > 1) {
+        $number = $number / 3;
+    }
+    return $number === 1;
 }
 
 print_r("1  -  " . (isPowerOfThree(1) ? 'true' : 'false') . "\n");
