@@ -35,6 +35,7 @@ switch ($challengeNumber) {
     case 3:
         //fib()
         break;
+
     case 4:
         $argument = readline("Enter a value for a function addDigits():");
         if ($argument < 0) {
