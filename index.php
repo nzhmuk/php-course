@@ -11,6 +11,7 @@ require_once(__DIR__ . '/src/Challenge1.php');
 require_once(__DIR__ . '/src/Challenge2.php');
 require_once(__DIR__ . '/src/Challenge3.php');
 require_once(__DIR__ . '/src/Challenge4.php');
+require_once(__DIR__ . '/src/Challenge5.php');
 
 $menuScreen = <<<EOT
 ----------------------------------------------------------------------------------------------------------------------
@@ -19,9 +20,11 @@ $menuScreen = <<<EOT
     2 - Challenge 2. Function isPowerOfThree(), returns (true/false) if a given number is power of 3 or not
     3 - Challenge 3. Function fib(), returns a positive Fibonacci number based on given index
     4 - Challenge 4. Function addDigits(), that shrinks argument into single number
+    5 - Challenge 5. Function isBalanced that validates a string of parenthesis if it is balanced or not
 ----------------------------------------------------------------------------------------------------------------------
     
 EOT;
+
 print_r($menuScreen);
 $challengeNumber = readline("Enter number of a challenge: ");
 
@@ -44,5 +47,10 @@ switch ($challengeNumber) {
     case 4:
         $task4 = new Challenge4();
         $task4->addDigitsUsage();
+        break;
+
+    case 5:
+        $task5 = new Challenge5();
+        $task5->isBalancedUsage();
         break;
 }
