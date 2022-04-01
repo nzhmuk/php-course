@@ -5,10 +5,12 @@ declare(strict_types=1);
  * Challenge functions should be called from here
  */
 
-require_once "php-course-task-1.php";
-require_once "php-course-task-2.php";
-require_once "php-course-task-3.php";
-require_once "php-course-task-4.php";
+namespace PhpCourseApp;
+
+require_once(__DIR__ . '/src/Challenge1.php');
+require_once(__DIR__ . '/src/Challenge2.php');
+require_once(__DIR__ . '/src/Challenge3.php');
+require_once(__DIR__ . '/src/Challenge4.php');
 
 $menuScreen = <<<EOT
 ----------------------------------------------------------------------------------------------------------------------
@@ -25,23 +27,22 @@ $challengeNumber = readline("Enter number of a challenge: ");
 
 switch ($challengeNumber) {
     case 1:
-        // binarySum
+        $task1 = new Challenge1();
+        $task1->binarySumUsage();
         break;
 
     case 2:
-        // isPowerOfThree
+        $task2 = new Challenge2();
+        $task2->isPowerOfThreeUsage();
         break;
 
     case 3:
-        //fib()
+        $task3 = new Challenge3();
+        $task3->fibUsage();
         break;
 
     case 4:
-        $argument = readline("Enter a value for a function addDigits():");
-        if ($argument < 0) {
-            print_r("Value should be a positive int number");
-        } else {
-            print_r(addDigits((int)$argument));
-        }
+        $task4 = new Challenge4();
+        $task4->addDigitsUsage();
         break;
 }
