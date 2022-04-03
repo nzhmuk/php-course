@@ -12,6 +12,7 @@ require_once(__DIR__ . '/src/Challenge2.php');
 require_once(__DIR__ . '/src/Challenge3.php');
 require_once(__DIR__ . '/src/Challenge4.php');
 require_once(__DIR__ . '/src/Challenge5.php');
+require_once(__DIR__ . '/src/Challenge6.php');
 
 $menuScreen = <<<EOT
 ----------------------------------------------------------------------------------------------------------------------
@@ -20,7 +21,8 @@ $menuScreen = <<<EOT
     2 - Challenge 2. Function isPowerOfThree(), returns (true/false) if a given number is power of 3 or not
     3 - Challenge 3. Function fib(), returns a positive Fibonacci number based on given index
     4 - Challenge 4. Function addDigits(), that shrinks argument into single number
-    5 - Challenge 5. Function isBalanced that validates a string of parenthesis if it is balanced or not
+    5 - Challenge 5. Function isBalanced() that validates a string of parenthesis if it is balanced or not
+    6 - Challenge 6. Functions isPerfect() that returns true if the input number is a perfect number and false otherwise
 ----------------------------------------------------------------------------------------------------------------------
     
 EOT;
@@ -52,5 +54,10 @@ switch ($challengeNumber) {
     case 5:
         $task5 = new Challenge5();
         $task5->isBalancedUsage();
+        break;
+
+    case 6:
+        $task6 = new Challenge6();
+        $task6->isPerfectUsage();
         break;
 }
