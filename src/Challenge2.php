@@ -15,7 +15,7 @@ class Challenge2
         }
 
         while ($number > 1) {
-            $number = $number / 3;
+            $number /= 3;
         }
         return $number === 1;
     }

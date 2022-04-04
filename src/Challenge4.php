@@ -15,10 +15,12 @@ class Challenge4
               return $number;
         }
 
-        while (strlen($number) > 1) {
+        $length = strlen($number);
+
+        while ($length > 1) {
             $result = 0;
 
-            for ($i = 0; $i < strlen($number); $i++) {
+            for ($i = 0; $i < $length; $i++) {
                 $result = $result + $number[$i];
             }
             $number = (string)$result;

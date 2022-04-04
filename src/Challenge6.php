@@ -22,15 +22,7 @@ class Challenge6
 
     protected function isPerfect(int $input): bool
     {
-        $result = false;
-        foreach (self::$perfectNumbers as $currentValue) {
-            if ($input === $currentValue) {
-                $result = true;
-                break;
-            }
-        }
-
-        return $result;
+        return in_array($input, self::$perfectNumbers);
     }
 
     public function isPerfectUsage()
@@ -38,7 +30,11 @@ class Challenge6
         do {
             $inputValue = (int) readline("Enter a number: ");
 
-            echo $inputValue, " is ", $this->isPerfect($inputValue) ? "a perfect number" : "not a perfect number", PHP_EOL;
+            echo $inputValue
+            , " is "
+            , $this->isPerfect($inputValue) ? "a perfect number" : "not a perfect number"
+            , PHP_EOL;
+
             $continueFlag = readline("Enter another number [y/n]:");
         } while ($continueFlag === "y");
     }
