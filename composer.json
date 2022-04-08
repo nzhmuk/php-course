@@ -1,0 +1,22 @@
+{
+    "name": "qateam/nzhmuk",
+    "description": "php-course-test-application",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Qateam\\Nzhmuk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nikolay Zhmuk",
+            "email": "nzhmuk@plesk.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "*"
+    },
+    "scripts": {
+        "lint": "phpcs --standard=PSR12 ./src"
+    }
+}

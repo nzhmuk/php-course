@@ -1,5 +1,7 @@
 <?php
+
 declare(strict_types=1);
+
 /*
  * Implement function isPowerOfThree(), that defines if the argument is power of 3 or not
  */
