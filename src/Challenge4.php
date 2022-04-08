@@ -16,13 +16,13 @@ class Challenge4
               return $number;
         }
 
-        $length = strlen($number);
-
-        while ($length > 1) {
+        while (strlen($number) > 1) {
             $result = 0;
 
+            $length = strlen($number);
+
             for ($i = 0; $i < $length; $i++) {
-                $result = $result + $number[$i];
+                $result += $number[$i];
             }
             $number = (string)$result;
         }
