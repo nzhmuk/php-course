@@ -13,6 +13,8 @@ require_once(__DIR__ . '/src/Challenge3.php');
 require_once(__DIR__ . '/src/Challenge4.php');
 require_once(__DIR__ . '/src/Challenge5.php');
 require_once(__DIR__ . '/src/Challenge6.php');
+require_once(__DIR__ . '/src/Challenge7.php');
+require_once(__DIR__ . '/src/Challenge8.php');
 
 $menuScreen = <<<EOT
 ----------------------------------------------------------------------------------------------------------------------
@@ -20,9 +22,11 @@ $menuScreen = <<<EOT
     1 - Challenge 1. Function binarySum(), accepts 2 binary numbers and return their sum
     2 - Challenge 2. Function isPowerOfThree(), returns (true/false) if a given number is power of 3 or not
     3 - Challenge 3. Function fib(), returns a positive Fibonacci number based on given index
-    4 - Challenge 4. Function addDigits(), that shrinks argument into single number
-    5 - Challenge 5. Function isBalanced() that validates a string of parenthesis if it is balanced or not
-    6 - Challenge 6. Functions isPerfect() that returns true if the input number is a perfect number and false otherwise
+    4 - Challenge 4. Function addDigits() shrinks argument into single number
+    5 - Challenge 5. Function isBalanced() validates a string of parenthesis if it is balanced or not
+    6 - Challenge 6. Functions isPerfect() returns true if the input number is a perfect number and false otherwise
+    7 - Challenge 7. Function isHappy() returns true if the input number is a happy and false otherwise
+    8 - Challenge 8. Functions fizzBuzz() generates a sequence of FizzBuzz numbers
 ----------------------------------------------------------------------------------------------------------------------
     
 EOT;
@@ -60,4 +64,13 @@ switch ($challengeNumber) {
         $task6 = new Challenge6();
         $task6->isPerfectUsage();
         break;
+
+    case 7:
+        $task7 = new Challenge7();
+        $task7->isHappytUsage();
+        break;
+
+    case 8:
+        $task8 = new Challenge8();
+        $task8->fizzBuzzUsage();
 }
