@@ -4,7 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Qateam\\Nzhmuk\\": "src/"
+            "PhpCourseApp\\": "src/"
         }
     },
     "authors": [
@@ -17,6 +17,10 @@
         "squizlabs/php_codesniffer": "*"
     },
     "scripts": {
-        "lint": "phpcs --standard=PSR12 ./src"
+        "lint": "phpcs --standard=PSR12 ./src",
+        "linttest": "phpcs --standard=PSR12 ./tests"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5"
     }
 }

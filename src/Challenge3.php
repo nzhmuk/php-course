@@ -12,7 +12,7 @@ const FIB_1 = 1;
 
 class Challenge3
 {
-    protected function fib(int $index): int
+    public function fib(int $index): int
     {
         if ($index === 0) {
             return FIB_0;

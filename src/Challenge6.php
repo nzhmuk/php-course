@@ -21,7 +21,7 @@ class Challenge6
         2305843008139952128,
     ];
 
-    protected function isPerfect(int $input): bool
+    public function isPerfect(int $input): bool
     {
         return in_array($input, self::$perfectNumbers);
     }

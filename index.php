@@ -67,7 +67,7 @@ switch ($challengeNumber) {
 
     case 7:
         $task7 = new Challenge7();
-        $task7->isHappytUsage();
+        $task7->isHappyUsage();
         break;
 
     case 8:

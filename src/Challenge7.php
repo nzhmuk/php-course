@@ -29,7 +29,7 @@ class Challenge7
         return ($firstHalf === $secondHalf);
     }
 
-    public function isHappytUsage()
+    public function isHappyUsage()
     {
         do {
             $inputValue = (string)readline("Enter a number: ");

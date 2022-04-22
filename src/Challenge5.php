@@ -10,7 +10,7 @@ namespace PhpCourseApp;
 
 class Challenge5
 {
-    protected function isBalanced(string $input): bool
+    public function isBalanced(string $input): bool
     {
         $length = strlen($input);
 
