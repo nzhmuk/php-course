@@ -10,7 +10,6 @@ namespace PhpCourseApp;
 
 class Challenge8
 {
-
     public function fizzBuzz(int $start, int $end): array
     {
         $resultArray = [];
