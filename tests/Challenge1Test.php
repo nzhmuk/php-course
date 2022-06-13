@@ -10,7 +10,7 @@ class Challenge1Test extends TestCase
      * @dataProvider binarySumProvider
      */
 
-    public function testBinarySum($num1, $num2, $expected): void
+    public function testBinarySum(string $num1, string $num2, string $expected): void
     {
         $challenge1 = new \PhpCourseApp\Challenge1();
         self::assertEquals($expected, $challenge1->binarySum($num1, $num2));

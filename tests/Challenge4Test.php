@@ -12,7 +12,7 @@ class Challenge4Test extends TestCase
      * @dataProvider addDigitsProvider
      */
 
-    public function testAddDigits($num, $expected): void
+    public function testAddDigits(string $num, string $expected): void
     {
         $challenge4 = new \PhpCourseApp\Challenge4();
         self::assertEquals($expected, $challenge4->addDigits($num));

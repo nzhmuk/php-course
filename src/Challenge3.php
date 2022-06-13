@@ -7,22 +7,24 @@ declare(strict_types=1);
  */
 namespace PhpCourseApp;
 
-const FIB_0 = 0;
-const FIB_1 = 1;
+use phpDocumentor\Reflection\Types\Self_;
 
 class Challenge3
 {
+    protected const FIB_0 = 0;
+    protected const FIB_1 = 1;
+
     public function fib(int $index): int
     {
         if ($index === 0) {
-            return FIB_0;
+            return self::FIB_0;
         }
         if ($index === 1) {
-            return FIB_1;
+            return self::FIB_1;
         }
 
-        $numberBeforeBefore = FIB_0;
-        $numberBefore = FIB_1;
+        $numberBeforeBefore = self::FIB_0;
+        $numberBefore = self::FIB_1;
         $number = 0;
 
         for ($i = 1; $i < $index; $i++) {

@@ -9,8 +9,7 @@ class Challenge7Test extends TestCase
     /**
      * @dataProvider isHappyProvider
      */
-
-    public function testIsHappy($num, $expected): void
+    public function testIsHappy(string $num, bool $expected): void
     {
         $challenge7 = new \PhpCourseApp\Challenge7();
         self::assertEquals($expected, $challenge7->isHappy($num));
