@@ -10,7 +10,7 @@ namespace PhpCourseApp;
 
 class Challenge2
 {
-    protected function isPowerOfThree(int $number): bool
+    public function isPowerOfThree(int $number): bool
     {
         if ($number === 1) {
             return true;

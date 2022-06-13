@@ -9,7 +9,7 @@ namespace PhpCourseApp;
 
 class Challenge4
 {
-    protected function addDigits(string $number): ?string
+    public function addDigits(string $number): ?string
     {
 
         if (strlen($number) === 1) {

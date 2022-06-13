@@ -9,7 +9,7 @@ namespace PhpCourseApp;
 
 class Challenge1
 {
-    protected function binarySum(string $binaryNum1, string $binaryNum2): string
+    public function binarySum(string $binaryNum1, string $binaryNum2): string
     {
         $decimalNum1 = bindec($binaryNum1);
         $decimalNum2 = bindec($binaryNum2);
