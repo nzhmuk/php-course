@@ -25,9 +25,14 @@ class Challenge2
     public function isPowerOfThreeUsage()
     {
         do {
-            $inputValue = (int)readline("Enter any INT number: ");
+            $inputValue = readline("Enter any INT number: ");
 
-            echo $inputValue, " is power of three - ", $this->isPowerOfThree($inputValue) ? 'true' : 'false', PHP_EOL;
+            if (preg_match('/^\\d+$/', $inputValue)) {
+                echo $inputValue, " is power of three - ", $this->isPowerOfThree((int)$inputValue) ? 'true' : 'false', PHP_EOL;
+            } else {
+                throw new \InvalidArgumentException('Oops! The input value is not valid, it should be INT type ');
+            };
+
             $continueFlag = readline("Check another number [y/n]:");
         } while ($continueFlag === "y");
     }

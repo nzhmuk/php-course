@@ -14,7 +14,7 @@ class Challenge3
     protected const FIB_0 = 0;
     protected const FIB_1 = 1;
 
-    public function fib(int $index): int
+    public function fib(int $index): float
     {
         if ($index === 0) {
             return self::FIB_0;
@@ -39,9 +39,14 @@ class Challenge3
     public function fibUsage()
     {
         do {
-            $inputValue = (int)readline("Enter an index of Fibonacci number: ");
+            $inputValue = readline("Enter an index of Fibonacci number: ");
 
-            echo "Fibonacci number with index ", $inputValue, " is ", $this->fib($inputValue), PHP_EOL;
+            if (preg_match('/^\\d+$/', $inputValue)) {
+                echo "Fibonacci number with index ", $inputValue, " is ", $this->fib((int)$inputValue), PHP_EOL;
+            } else {
+                throw new \InvalidArgumentException('Oops! The input value is not valid, it should be INT type ');
+            };
+
             $continueFlag = readline("Input another index [y/n]:");
         } while ($continueFlag === "y");
     }

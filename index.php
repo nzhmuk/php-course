@@ -31,46 +31,63 @@ $menuScreen = <<<EOT
     
 EOT;
 
-print_r($menuScreen);
-$challengeNumber = readline("Enter number of a challenge: ");
+do {
+    print_r($menuScreen);
 
-switch ($challengeNumber) {
-    case 1:
-        $task1 = new Challenge1();
-        $task1->binarySumUsage();
-        break;
+    $challengeNumber = readline("Enter number of a challenge: ");
 
-    case 2:
-        $task2 = new Challenge2();
-        $task2->isPowerOfThreeUsage();
-        break;
+    switch ($challengeNumber) {
+        case 1:
+            $task1 = new Challenge1();
+            try {
+                $task1->binarySumUsage();
+            } catch (\Exception $e) {
+                echo 'Caught an exception: ',  $e->getMessage(), "\n";
+            }
+            break;
 
-    case 3:
-        $task3 = new Challenge3();
-        $task3->fibUsage();
-        break;
+        case 2:
+            $task2 = new Challenge2();
+            try {
+                $task2->isPowerOfThreeUsage();
+            } catch (\Exception $e) {
+                echo 'Caught an exception: ',  $e->getMessage(), "\n";
+            }
+            break;
 
-    case 4:
-        $task4 = new Challenge4();
-        $task4->addDigitsUsage();
-        break;
+        case 3:
+            $task3 = new Challenge3();
+            try {
+                $task3->fibUsage();
+            } catch (\Exception $e) {
+                echo 'Caught an exception: ',  $e->getMessage(), "\n";
+            }
+            break;
 
-    case 5:
-        $task5 = new Challenge5();
-        $task5->isBalancedUsage();
-        break;
+        case 4:
+            $task4 = new Challenge4();
+            $task4->addDigitsUsage();
+            break;
 
-    case 6:
-        $task6 = new Challenge6();
-        $task6->isPerfectUsage();
-        break;
+        case 5:
+            $task5 = new Challenge5();
+            $task5->isBalancedUsage();
+            break;
 
-    case 7:
-        $task7 = new Challenge7();
-        $task7->isHappyUsage();
-        break;
+        case 6:
+            $task6 = new Challenge6();
+            $task6->isPerfectUsage();
+            break;
 
-    case 8:
-        $task8 = new Challenge8();
-        $task8->fizzBuzzUsage();
-}
+        case 7:
+            $task7 = new Challenge7();
+            $task7->isHappyUsage();
+            break;
+
+        case 8:
+            $task8 = new Challenge8();
+            $task8->fizzBuzzUsage();
+    }
+
+    $continueFlag = readline("Select a challenge once again [y/n]:");
+} while ($continueFlag === "y");
