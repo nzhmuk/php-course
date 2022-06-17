@@ -8,30 +8,47 @@ declare(strict_types=1);
 
 namespace PhpCourseApp;
 
+use PhpCourseApp\Logger\LoggerInterface;
+
 class Challenge2
 {
-    public function isPowerOfThree(int $number): bool
-    {
-        if ($number === 1) {
-            return true;
-        }
+    private $logger;
 
-        while ($number > 1) {
-            $number /= 3;
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    public function isPowerOfThree(string $number): bool
+    {
+        $numberToInt = (int)$number;
+
+        if (preg_match('/^\\d+$/', $number)) {
+            if ($numberToInt === 0) {
+                return true;
+            }
+
+            if ($numberToInt === 1) {
+                return true;
+            }
+
+            while ($numberToInt > 1) {
+                $numberToInt /= 3;
+            }
+            return $numberToInt === 1;
+        } else {
+            $this->logger->err(' Oops! The input value is not valid, it should be an integer');
+            throw new \InvalidArgumentException('Oops! The input value is not valid, it should be an integer');
         }
-        return $number === 1;
     }
 
     public function isPowerOfThreeUsage()
     {
         do {
             $inputValue = readline("Enter any INT number: ");
-
-            if (preg_match('/^\\d+$/', $inputValue)) {
-                echo $inputValue, " is power of three - ", $this->isPowerOfThree((int)$inputValue) ? 'true' : 'false', PHP_EOL;
-            } else {
-                throw new \InvalidArgumentException('Oops! The input value is not valid, it should be INT type ');
-            };
+            $result = ($this->isPowerOfThree($inputValue) ? 'true' : 'false');
+            echo $inputValue, " is power of three - ", $result , PHP_EOL;
+            $this->logger->info("$inputValue is power of three - $result");
 
             $continueFlag = readline("Check another number [y/n]:");
         } while ($continueFlag === "y");

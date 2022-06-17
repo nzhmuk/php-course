@@ -7,14 +7,13 @@ declare(strict_types=1);
 
 namespace PhpCourseApp;
 
-require_once(__DIR__ . '/src/Challenge1.php');
-require_once(__DIR__ . '/src/Challenge2.php');
-require_once(__DIR__ . '/src/Challenge3.php');
-require_once(__DIR__ . '/src/Challenge4.php');
-require_once(__DIR__ . '/src/Challenge5.php');
-require_once(__DIR__ . '/src/Challenge6.php');
-require_once(__DIR__ . '/src/Challenge7.php');
-require_once(__DIR__ . '/src/Challenge8.php');
+use PhpCourseApp\Logger\LoggerFactory;
+
+require __DIR__ . '/vendor/autoload.php';
+$config = require __DIR__ . '/config.php';
+
+$loggerFactory = new LoggerFactory($config);
+$logger = $loggerFactory->createLogger();
 
 $menuScreen = <<<EOT
 ----------------------------------------------------------------------------------------------------------------------
@@ -38,7 +37,7 @@ do {
 
     switch ($challengeNumber) {
         case 1:
-            $task1 = new Challenge1();
+            $task1 = new Challenge1($logger);
             try {
                 $task1->binarySumUsage();
             } catch (\Exception $e) {
@@ -47,7 +46,7 @@ do {
             break;
 
         case 2:
-            $task2 = new Challenge2();
+            $task2 = new Challenge2($logger);
             try {
                 $task2->isPowerOfThreeUsage();
             } catch (\Exception $e) {

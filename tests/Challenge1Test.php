@@ -2,6 +2,8 @@
 
 namespace PhpCourseApp\Tests;
 
+use PhpCourseApp\Logger\FakeLogger;
+use PhpCourseApp\Logger\StdoutLogger;
 use PHPUnit\Framework\TestCase;
 
 class Challenge1Test extends TestCase
@@ -12,8 +14,17 @@ class Challenge1Test extends TestCase
 
     public function testBinarySum(string $num1, string $num2, string $expected): void
     {
-        $challenge1 = new \PhpCourseApp\Challenge1();
-        self::assertEquals($expected, $challenge1->binarySum($num1, $num2));
+        $logger = new FakeLogger();
+        $challenge1 = new \PhpCourseApp\Challenge1($logger);
+        self::assertEquals(
+            $expected,
+            $challenge1->binarySum($num1, $num2)
+        );
+
+        self::assertEquals(
+            "[INFO]Sum $num1 and $num2 is $expected",
+            $logger->getLastMessage()
+        );
     }
 
     public function binarySumProvider(): array
@@ -29,25 +40,31 @@ class Challenge1Test extends TestCase
     }
 
     /**
-     * @dataProvider binarySumProviderInvalid
+     * @dataProvider binarySumInvalidProvider
      */
 
     public function testBinarySumInvalid(string $num1, string $num2): void
     {
-        $challenge1 = new \PhpCourseApp\Challenge1();
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('Oops! One of the input numbers is not a binary');
-        $challenge1->binarySum($num1, $num2);
+        $logger = new FakeLogger();
+        $challenge1 = new \PhpCourseApp\Challenge1($logger);
+        try {
+            $challenge1->binarySum($num1, $num2);
+        } catch (\Throwable $e) {
+            self::assertInstanceOf(\InvalidArgumentException::class, $e);
+            self::assertEquals('Oops! One of the input numbers is not a binary ', $e->getMessage());
+        }
+
+        self::assertEquals('[ERR]Oops! One of the input numbers is not a binary', $logger->getLastMessage());
     }
 
-    public function binarySumProviderInvalid(): array
+    public function binarySumInvalidProvider(): array
     {
         return [
             ['123', '001'],
             ['aaa', '101'],
             ['-10001', '111'],
             ['11.11', '001'],
-            ['123', '321']
+            ['123', '321'],
         ];
     }
 }
