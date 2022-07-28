@@ -10,7 +10,7 @@ class Challenge8Test extends TestCase
      * @dataProvider fizzBuzzProvider
      */
 
-    public function testFizzBuzz(int $start,int  $end, string $expected): void
+    public function testFizzBuzz(int $start, int $end, string $expected): void
     {
         $challenge8 = new \PhpCourseApp\Challenge8();
         self::assertEquals($expected, implode(", ", $challenge8->fizzBuzz($start, $end)));
